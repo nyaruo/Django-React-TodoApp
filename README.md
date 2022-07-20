@@ -121,6 +121,7 @@ pipenv install djangorestframework django-cors-headers
 ###### アプリの設定
 
 ```python:backend/settings.py
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -145,20 +146,24 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware', # 追加
 ]
+
 ```
 
 以下のコードを一番最後の行に追加
 
 ```python:backend/settings.py
+
 CORS_ORIGIN_WHITELIST = [
      'http://localhost:3000'
 ]
+
 ```
 
 ###### Serializersの作成
 todoディレクトリの中に、serializers.pyファイルを新規作成
 
 ```python:todo/serializers.py
+
 from rest_framework import serializers
 from .models import Todo
 
@@ -166,6 +171,7 @@ class TodoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Todo
         fields = ('id', 'title', 'description', 'completed')
+        
 ```
 
 ###### viewsの設定
