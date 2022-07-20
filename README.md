@@ -51,6 +51,7 @@ python manage.py runserver
 ```
 終了する場合は、Ctrl + C
 ###### todoアプリの登録
+
 ```python:backend/settings.py
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -62,7 +63,9 @@ INSTALLED_APPS = [
     'todo', # 追加
 ]
 ```
+
 ###### TODOモデルの定義
+
 ```python:todo/models.py
 from django.db import models
 
@@ -76,6 +79,7 @@ class Todo(models.Model):
     def _str_(self):
         return self.title
 ```
+
 ###### マイグレーションファイルの作成
 ```
 python manage.py makemigrations todo
@@ -85,6 +89,7 @@ python manage.py makemigrations todo
 python manage.py migrate todo
 ```
 ###### models.pyで作成したモデルを登録
+
 ```python:todo/admin.py
 from django.contrib import admin
 from .models import Todo
@@ -96,6 +101,7 @@ class TodoAdmin(admin.ModelAdmin):
 
 admin.site.register(Todo, TodoAdmin)
 ```
+
 ###### 管理者アカウントの作成
 ```
 python manage.py createsuperuser
@@ -113,6 +119,7 @@ python manage.py runserver
 pipenv install djangorestframework django-cors-headers
 ```
 ###### アプリの設定
+
 ```python:backend/settings.py
 # Application definition
 
@@ -139,14 +146,18 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', # 追加
 ]
 ```
+
 以下のコードを一番最後の行に追加
+
 ```python:backend/settings.py
 CORS_ORIGIN_WHITELIST = [
      'http://localhost:3000'
 ]
 ```
+
 ###### Serializersの作成
 todoディレクトリの中に、serializers.pyファイルを新規作成
+
 ```python:todo/serializers.py
 from rest_framework import serializers
 from .models import Todo
@@ -156,7 +167,9 @@ class TodoSerializer(serializers.ModelSerializer):
         model = Todo
         fields = ('id', 'title', 'description', 'completed')
 ```
+
 ###### viewsの設定
+
 ```python:todo/views.py
 from django.shortcuts import render
 from rest_framework import viewsets
@@ -169,7 +182,9 @@ class TodoView(viewsets.ModelViewSet):
     serializer_class = TodoSerializer
     queryset = Todo.objects.all()
 ```
+
 ###### APIのURLパスを指定
+
 ```python:todo/urls.py
 from django.contrib import admin
 from django.urls import path, include
@@ -184,6 +199,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
 ]
 ```
+
 ###### サーバーを再起動
 ```
 python manage.py runserver
@@ -216,6 +232,7 @@ npm start
 npm install bootstrap@4.6.0 reactstrap@8.9.0 --legacy-peer-deps
 ```
 ###### index.jsにboostrapをインポートする
+
 ```js:frontend/src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -236,7 +253,9 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 ```
+
 ###### デザイン部分を用意
+
 ```js:frontend/src/App.js
 import React, { Component } from "react";
 
@@ -366,12 +385,14 @@ class App extends Component {
 
 export default App;
 ```
+
 ###### src直下にcomponentsディレクトリを作成
 ```
 mkdir src/components
 ```
 ###### Modals.jsファイルを作成
 componentsフォルダの中にModal.jsファイルを新規作成
+
 ```js:frontend/src/components/Modal.js
 import React, { Component } from "react";
 import {
@@ -462,7 +483,9 @@ export default class CustomModal extends Component {
   }
 }
 ```
+
 ###### Modals.jsをApp.jsにインポート
+
 ```js:frontend/src/App.js
 import React, { Component } from "react";
 import Modal from "./components/Modal";
@@ -633,12 +656,14 @@ class App extends Component {
 
 export default App;
 ```
+
 ###### axiosのインストール
 ```
 npm install axios@0.21.1
 ```
 ###### proxyの追加
 package.jsonにproxyを追加する
+
 ```js:frontend/package.json
 [...]
   "name": "frontend",
@@ -655,7 +680,9 @@ package.jsonにproxyを追加する
   },
 [...]
 ```
+
 ###### 実際にバックエンドからデータを受け取るようにする
+
 ```js:frontend/src/App.js
 // frontend/src/App.js
 
@@ -808,3 +835,4 @@ class App extends Component {
 export default App;
 
 ```
+
