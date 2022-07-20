@@ -51,6 +51,7 @@ python manage.py runserver
 ```
 終了する場合は、Ctrl + C
 ###### todoアプリの登録
+```backend/settings.py```
 
 ```python:backend/settings.py
 INSTALLED_APPS = [
@@ -65,6 +66,7 @@ INSTALLED_APPS = [
 ```
 
 ###### TODOモデルの定義
+```todo/models.py```
 
 ```python:todo/models.py
 from django.db import models
@@ -89,6 +91,7 @@ python manage.py makemigrations todo
 python manage.py migrate todo
 ```
 ###### models.pyで作成したモデルを登録
+```todo/admin.py```
 
 ```python:todo/admin.py
 from django.contrib import admin
@@ -119,6 +122,7 @@ python manage.py runserver
 pipenv install djangorestframework django-cors-headers
 ```
 ###### アプリの設定
+```backend/settings.py```
 
 ```python:backend/settings.py
 
@@ -150,6 +154,7 @@ MIDDLEWARE = [
 ```
 
 以下のコードを一番最後の行に追加
+```backend/settings.py```
 
 ```python:backend/settings.py
 
@@ -161,6 +166,7 @@ CORS_ORIGIN_WHITELIST = [
 
 ###### Serializersの作成
 todoディレクトリの中に、serializers.pyファイルを新規作成
+```todo/serializers.py```
 
 ```python:todo/serializers.py
 
@@ -175,6 +181,7 @@ class TodoSerializer(serializers.ModelSerializer):
 ```
 
 ###### viewsの設定
+```todo/views.py```
 
 ```python:todo/views.py
 from django.shortcuts import render
@@ -190,6 +197,7 @@ class TodoView(viewsets.ModelViewSet):
 ```
 
 ###### APIのURLパスを指定
+```todo/urls.py```
 
 ```python:todo/urls.py
 from django.contrib import admin
@@ -238,6 +246,7 @@ npm start
 npm install bootstrap@4.6.0 reactstrap@8.9.0 --legacy-peer-deps
 ```
 ###### index.jsにboostrapをインポートする
+```frontend/src/index.js```
 
 ```js:frontend/src/index.js
 import React from 'react';
@@ -261,6 +270,7 @@ reportWebVitals();
 ```
 
 ###### デザイン部分を用意
+```frontend/src/App.js```
 
 ```js:frontend/src/App.js
 import React, { Component } from "react";
@@ -398,6 +408,7 @@ mkdir src/components
 ```
 ###### Modals.jsファイルを作成
 componentsフォルダの中にModal.jsファイルを新規作成
+```frontend/src/components/Modal.js```
 
 ```js:frontend/src/components/Modal.js
 import React, { Component } from "react";
@@ -491,6 +502,7 @@ export default class CustomModal extends Component {
 ```
 
 ###### Modals.jsをApp.jsにインポート
+```frontend/src/App.js```
 
 ```js:frontend/src/App.js
 import React, { Component } from "react";
@@ -669,6 +681,7 @@ npm install axios@0.21.1
 ```
 ###### proxyの追加
 package.jsonにproxyを追加する
+```frontend/package.json```
 
 ```js:frontend/package.json
 [...]
@@ -688,6 +701,7 @@ package.jsonにproxyを追加する
 ```
 
 ###### 実際にバックエンドからデータを受け取るようにする
+```frontend/src/App.js```
 
 ```js:frontend/src/App.js
 // frontend/src/App.js
