@@ -1,4 +1,8 @@
 # Django-React-TodoApp
+# 使用したスライド
+https://docs.google.com/presentation/d/177VjB9IY53yR0C34cArvNXGizbHm7xl6KCOlbjVVBK8/edit?usp=sharing
+# 参考文献
+https://www.digitalocean.com/community/tutorials/build-a-to-do-application-using-django-and-react
 
 以下の順番でコマンド、コードを記述していきます。
 エラー回避、時間短縮の為コピーを推奨します。
@@ -197,9 +201,9 @@ class TodoView(viewsets.ModelViewSet):
 ```
 
 ###### APIのURLパスを指定
-```todo/urls.py```
+```backend/urls.py```
 
-```python:todo/urls.py
+```python:backend/urls.py
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
