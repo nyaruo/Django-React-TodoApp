@@ -1,8 +1,14 @@
 # Django-React-TodoApp
 # 使用したスライド
+
 https://docs.google.com/presentation/d/177VjB9IY53yR0C34cArvNXGizbHm7xl6KCOlbjVVBK8/edit?usp=sharing
+
 # 参考文献
+
+注意:( 下記ページのコードだとうまく動かないため、App.jsは本リポジトリのコードを参照してください。
+
 https://www.digitalocean.com/community/tutorials/build-a-to-do-application-using-django-and-react
+
 
 以下の順番でコマンド、コードを記述していきます。
 エラー回避、時間短縮の為コピーを推奨します。
